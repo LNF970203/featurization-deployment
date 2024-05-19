@@ -1,9 +1,9 @@
 version: "3.8"
-  services:
-    backend:
-      build: ./flask
-      container_name: flask_backend
-      prots:
-        - 5000:5000
-      volumes:
-        - ./flask:./flask
+services:
+  backend:
+    build: ./flask
+    container_name: flask_backend
+    ports:
+      - 5000:5000
+    volumes:
+      - C:/Lachin/Development/convnext_deployment/featurization-deployment/flask:/flask
