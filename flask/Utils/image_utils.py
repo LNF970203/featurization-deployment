@@ -18,7 +18,7 @@ def get_image_payload(data):
     return payload
 
 
-def preprocess_input(img):
+def preprocess_image_input(img):
     """
     Convert the bytestream to RGB.
     And apply the same preprocessing used in training.
@@ -31,7 +31,6 @@ def preprocess_input(img):
     # expand the dimension to represent batch
     img_batch = np.expand_dims(img_array, axis = 0)
     # create a deep copy
-    image_batch = copy.deepcopy(img_batch)
-    preprocess_image_batch = preprocess_input(image_batch)
-
+    # image_batch = copy.deepcopy(img_batch)
+    preprocess_image_batch = preprocess_input(img_batch)
     return preprocess_image_batch
