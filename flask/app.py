@@ -17,16 +17,22 @@ def inference():
     if request.method == "POST":
         data = request.json
         params = data["body"]
-        image_data = data["image"]
+        image_data = params["image"]
 
         # load the row image
         try:
             payload = iutils.get_image_payload(image_data)
-            process_payload = iutils.preprocess_input(payload)
+            app.logger.info(payload)
+            process_payload = iutils.preprocess_image_input(payload)
+            app.logger.info(process_payload)
 
             # load the model
             selected_model = mutils.load_featurized_model()
             predictions = selected_model.predict(process_payload)
+            app.logger.info(predictions)
+
+            # send the response
+            return jsonify(rutils.success_response({"id": 12}))
 
         except Exception as error:
             app.logger.info(str(error))
@@ -37,9 +43,6 @@ def inference():
                 "suggestions": None
             }
             return jsonify(rutils.failuer_response([error]))
-
-
-        return jsonify(rutils.success_response({"id": 12}))
         
 
 if __name__ == "__main__":
