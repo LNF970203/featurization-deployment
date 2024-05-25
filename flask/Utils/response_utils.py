@@ -8,7 +8,7 @@ def success_response(data: dict) -> dict:
 
 def failuer_response(errors: list) -> dict:
     return {
-        "status": "success",
+        "status": "failure",
         "data": None,
         "errors": errors
     }
