@@ -13,7 +13,7 @@ def load_featurized_model():
     base_model = tf.keras.applications.ConvNeXtXLarge(
         input_shape = INPUT_SHAPE,
         include_top = False,
-        weights = 'imagenet'
+        weights = './Models/convnext_xlarge_notop.h5'
     )
 
     # add average pooling to base
