@@ -12,7 +12,8 @@ app = Flask(__name__)
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
 
-@app.route("/inference", methods = ["POST"])
+
+@app.route("/inference", methods=["POST"])
 def inference():
     if request.method == "POST":
         data = request.json
@@ -36,19 +37,11 @@ def inference():
         except Exception as error:
             app.logger.info(str(error))
             message = "unable to get features. Error message: {}".format(str(error))
-            error_info = {
-                "errorCode": None,
-                "message": message,
-                "suggestions": None
-            }
+            error_info = {"errorCode": None, "message": message, "suggestions": None}
             return jsonify(rutils.failuer_response([error_info]))
     else:
         message = "Invalid HTTP method"
-        error_info = {
-            "errorCode": None,
-            "message": message,
-            "suggestions": None
-        }
+        error_info = {"errorCode": None, "message": message, "suggestions": None}
         return jsonify(rutils.failuer_response([error_info]))
 
 
