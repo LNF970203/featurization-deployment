@@ -22,9 +22,7 @@ def inference():
         # load the row image
         try:
             payload = iutils.get_image_payload(image_data)
-            app.logger.info(payload)
             process_payload = iutils.preprocess_image_input(payload)
-            app.logger.info(process_payload)
 
             # load the model
             selected_model = mutils.load_featurized_model()
