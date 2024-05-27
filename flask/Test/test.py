@@ -27,9 +27,8 @@ def get_features(path: str, url: str = config.ENDPOINT_URL):
     send a post REST api request to flask backend
     """
     image_payload = convert_base64(path)
-    print(image_payload)
-    endpoint_response = requests.post(url, data = json.dumps(image_payload))
-    print(endpoint_response)
+    headers = {'Content-Type': 'application/json'}
+    endpoint_response = requests.post(url, data = json.dumps(image_payload), headers = headers)
     response = getattr(endpoint_response, '_content').decode("utf-8")
     print(response)
     #final_response = json.loads(response)
