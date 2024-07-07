@@ -6,4 +6,4 @@ services:
     ports:
       - 5000:5000
     volumes:
-      - C:/Lachin/Development/convnext_deployment/featurization-deployment/flask:/flask
+      - D:/Lachin/Development/FeaturizationDeployment/featurization-deployment/flask:/flask
