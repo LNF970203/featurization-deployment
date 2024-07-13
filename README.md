@@ -6,7 +6,7 @@ What is Featurization?
 Deployment issues?
 - Several issues when we use the serverless architecture.
     - Install tensorflow (Will need AWS EFS)
-    - API GAtEWAY timeout 29 seconds
+    - API GATEWAY timeout 29 seconds
 - High cost to address these issues.
 
 How to solver?
